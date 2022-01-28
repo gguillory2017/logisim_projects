@@ -1,0 +1,15 @@
+path <- paste0("../Desktop/sbox_",1,".csv")
+s <- as.matrix(read.csv(path,header=FALSE,sep="\t"))
+top <- rbind(s[1,],s[2,])
+top <- matrix(top,8,4)
+top <- t(top)
+bot <- rbind(s[3,],s[4,])
+bot <- matrix(bot,8,4)
+bot <- t(bot)
+full <- rbind(top,bot)
+k <- as.array(t(full))
+l <- as.list(as.character(as.hexmode(k)))
+
+
+write.table(full,paste0("../Desktop/sbox__ordered",1,".csv"), sep="", row.names = FALSE, col.names = FALSE)
+write.table(l,file=paste0("../Desktop/sbox__ordered_list",1,".csv"), sep="", row.names = FALSE, col.names = FALSE)
